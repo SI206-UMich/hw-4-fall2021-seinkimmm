@@ -96,8 +96,16 @@ class Stall:
         return self.cost * quantity
     
     def __str__(self):
-
-        return "Hello, we are " + self.name + ". This is the current menu " + str(sum([len(category) for category in self.directory.keys()])) + ". We charge $" + self.cost + " per item. We have $" + self.earnings + " in total."
+        listItems = ""
+        count = 0
+        for x in self.inventory.keys():
+            count +=1
+            if(count!= (len(self.inventory))):
+                listItems+=x + ", "
+            else: 
+                listItems+=x
+            
+        return "Hello, we are " + self.name + ". This is the current menu " + listItems + ". We charge $" + str(self.cost) + " per item. We have $" + str(self.earnings) + " in total."
 
 class TestAllMethods(unittest.TestCase):
     
@@ -204,7 +212,11 @@ class TestAllMethods(unittest.TestCase):
         self.assertEqual(self.f1.wallet, 100)
         self.f1.reload_money(200)
         self.assertEqual(self.f1.wallet, 300)
-    
+    def test_stall(self):
+        print(self.s1)
+        print(self.s1.compute_cost(10))
+        self.s1.stock_up("Taco", 10)
+        self.assertEqual(self.s1.inventory["Taco"], 60)
 ### Write main function
 def main():
 
