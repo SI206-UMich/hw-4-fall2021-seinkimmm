@@ -212,7 +212,7 @@ def main():
     food1 = {
         "pancakes": 2,
         "waffles": 10,
-        "frenchtoast": 25,
+        "french toast": 25,
     }
     food2 = {
         "cake": 21,
@@ -233,7 +233,7 @@ def main():
     #case 2: the casher has the stall, but not enough ordered food or the ordered food item
     two.validate_order(cashier1, stall1, "pancakes", 11)
     #case 3: the customer does not have enough money to pay for the order: 
-    three.validate_order(cashier1, stall1, "frenchtoast", 25)
+    three.validate_order(cashier1, stall1, "french toast", 25)
     #case 4: the customer successfully places an order
     one.validate_order(cashier1, stall1, "waffles", 2)
 
