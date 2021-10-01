@@ -217,6 +217,9 @@ class TestAllMethods(unittest.TestCase):
         print(self.s1.compute_cost(10))
         self.s1.stock_up("Taco", 10)
         self.assertEqual(self.s1.inventory["Taco"], 60)
+    def testCustomer(self):
+        self.f1.submit_order(self.c1,self.s1,20)
+        print(self.s1.earnings)
 ### Write main function
 def main():
 
